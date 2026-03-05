@@ -1,0 +1,16 @@
+﻿<Window x:Class="Prog6221PoeRecipeAppP3.Views.ScaleRecipe"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Scale Recipe" Height="200" Width="400" Background="#F5F5F5">
+    <Grid Margin="20">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Scale Recipe By" FontWeight="Bold" FontSize="16" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+            <ComboBox x:Name="cbScaleFactor" Width="200" Height="30" Background="#FFA000">
+                <ComboBoxItem Content="Half"/>
+                <ComboBoxItem Content="Double"/>
+                <ComboBoxItem Content="Triple"/>
+            </ComboBox>
+            <Button Content="Apply" Width="100" Height="30" Margin="0,20,0,0" Background="#FFA000" HorizontalAlignment="Center" Click="Apply_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,27 @@
+﻿<Window x:Class="Prog6221PoeRecipeAppP3.Views.RecipeList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Recipe List" Height="600" Width="800" Background="#F0F0F0">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Grid.Row="0" Text="Recipe List" FontWeight="Bold" FontSize="32" HorizontalAlignment="Center" Margin="0,20"/>
+
+        <!-- Recipes DataGrid -->
+        <DataGrid Grid.Row="1" x:Name="dgRecipes" AutoGenerateColumns="False" CanUserAddRows="False" 
+                  CanUserResizeColumns="False" SelectionMode="Single" SelectedItem="{Binding SelectedRecipe}" 
+                  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20" Background="White" 
+                  BorderBrush="#CCCCCC" BorderThickness="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Recipe Name" Binding="{Binding Name}" Width="*" FontSize="24"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Filter Button -->
+        <Button Content="Filter" Click="BtnFilter_Click" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,28,20,0" Height="43" Width="63"/>
+    </Grid>
+</Window>

@@ -1,0 +1,107 @@
+﻿<Window x:Class="Prog6221PoeRecipeAppP3.Views.AddRecipe"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Recipe" Height="800" Width="800" Background="#F5F5F5">
+    <Grid Margin="20,10,20,10">
+        <Grid.RowDefinitions>
+            <!-- Row for Recipe Name -->
+            <RowDefinition Height="Auto"/>
+            <!-- Row for Subheadings and Inputs -->
+            <RowDefinition Height="Auto" MinHeight="76.9"/>
+            <!-- Row for Recipe Instructions -->
+            <RowDefinition Height="Auto" MinHeight="183.94"/>
+            <!-- Row for Buttons -->
+            <RowDefinition Height="Auto" MinHeight="110"/>
+            <!-- Row for Ingredients DataGrid -->
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Recipe Name Section -->
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,20" Width="306">
+            <TextBlock Text="Recipe Name" FontWeight="Bold" FontSize="28" Foreground="#333333"
+                       Margin="0,0,0,10" Width="180"/>
+            <TextBox x:Name="tbRecipeName" BorderBrush="#CCCCCC" BorderThickness="0,0,0,1" 
+                     Padding="5" FontSize="20" Height="34" HorizontalContentAlignment="Center"/>
+        </StackPanel>
+
+        <!-- Subheadings and Inputs Section -->
+        <Grid Grid.Row="1" Margin="14,10,14,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Ingredient Section -->
+            <StackPanel Grid.Column="0" Margin="10,0" HorizontalAlignment="Center">
+                <TextBlock Text="Ingredient" FontStyle="Italic" Foreground="Gray" 
+                           FontSize="14" Margin="0,0,0,5"/>
+                <TextBox x:Name="tbIngredientName" BorderBrush="Gray" BorderThickness="1" 
+                         Padding="5" FontSize="16" Width="120"/>
+            </StackPanel>
+
+            <!-- Quantity Section -->
+            <StackPanel Grid.Column="1" Margin="10,0" HorizontalAlignment="Center">
+                <TextBlock Text="Quantity" FontStyle="Italic" Foreground="Gray" 
+                           FontSize="14" Margin="0,0,0,5"/>
+                <TextBox x:Name="tbIngredientQuantity" BorderBrush="Gray" BorderThickness="1" 
+                         Padding="5" FontSize="16" Width="120"/>
+            </StackPanel>
+
+            <!-- Unit of Measurement Section -->
+            <StackPanel Grid.Column="2" Margin="10,0" HorizontalAlignment="Center">
+                <TextBlock Text="Unit of Measurement" FontStyle="Italic" Foreground="Gray" 
+                           FontSize="14" Margin="0,0,0,5"/>
+                <TextBox x:Name="tbIngredientUnit" BorderBrush="Gray" BorderThickness="1" 
+                         Padding="5" FontSize="16" Width="146"/>
+            </StackPanel>
+
+            <!-- Calories Section -->
+            <StackPanel Grid.Column="3" Margin="10,0" HorizontalAlignment="Center">
+                <TextBlock Text="Calories" FontStyle="Italic" Foreground="Gray" 
+                           FontSize="14" Margin="0,0,0,5"/>
+                <TextBox x:Name="tbIngredientCalories" BorderBrush="Gray" BorderThickness="1" 
+                         Padding="5" FontSize="16" Width="120"/>
+            </StackPanel>
+
+            <!-- Food Group Section -->
+            <StackPanel Grid.Column="4" Margin="10,0" HorizontalAlignment="Center">
+                <TextBlock Text="Food Group" FontStyle="Italic" Foreground="Gray" 
+                           FontSize="14" Margin="0,0,0,5"/>
+                <TextBox x:Name="tbIngredientFoodGroup" BorderBrush="Gray" BorderThickness="1" 
+                         Padding="5" FontSize="16" Width="120"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Recipe Instructions Section -->
+        <StackPanel Grid.Row="2" Margin="0,20,0,20">
+            <TextBlock Text="Recipe Instructions:" FontWeight="Bold" FontSize="22" Margin="0,10"/>
+            <TextBox x:Name="tbRecipeInstructions" BorderBrush="#CCCCCC" BorderThickness="1" Padding="5" 
+                     FontSize="18" TextWrapping="Wrap" AcceptsReturn="True" Height="100"/>
+        </StackPanel>
+
+        <!-- Buttons Section -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,20" Width="642">
+            <Button Content="Add Ingredient" FontSize="18" Width="140" Height="50" Margin="10" Background="#FFB74D" Foreground="White" Click="BtnAddIngredient_Click"/>
+            <Button Content="Scale Recipe" FontSize="18" Width="140" Height="50" Margin="10" Background="#FF7043" Foreground="White" Click="BtnScaleRecipe_Click"/>
+            <Button Content="Save Recipe" FontSize="18" Width="140" Height="50" Margin="10" Background="#E64A19" Foreground="White" Click="BtnSaveRecipe_Click"/>
+            <Button Content="Return Home" FontSize="18" Width="140" Height="50" Margin="10" Background="#5D4037" Foreground="White" Click="BtnCancel_Click"/>
+        </StackPanel>
+
+        <!-- Ingredients Display Table -->
+        <DataGrid Grid.Row="4" x:Name="dgIngredients" AutoGenerateColumns="False" Margin="20,10,20,0" VerticalAlignment="Top" 
+          HeadersVisibility="Column" ColumnWidth="*" BorderThickness="1"
+          CanUserResizeColumns="True" CanUserReorderColumns="False"
+          CanUserAddRows="False" IsReadOnly="True" ItemsSource="{Binding Ingredients}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ingredient Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Header="Unit of Measurement" Binding="{Binding UnitOfMeasurement}"/>
+                <DataGridTextColumn Header="Calories" Binding="{Binding Calories}"/>
+                <DataGridTextColumn Header="Food Group" Binding="{Binding FoodGroup}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

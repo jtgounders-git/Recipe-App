@@ -1,0 +1,41 @@
+﻿<Window x:Class="Prog6221PoeRecipeAppP3.Views.FilterRecipeList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Filter the Recipe List" Height="259" Width="400">
+    <Grid Margin="20,20,20,11">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Heading -->
+        <TextBlock Grid.Row="0" Text="Select a Filtering option" FontWeight="Bold" FontSize="18" Margin="0,10"/>
+
+        <!-- Option 1: Ingredient Search -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10">
+            <TextBlock Text="Ingredient: " VerticalAlignment="Center"/>
+            <TextBox x:Name="tbIngredient" Width="200" Margin="10,0"/>
+            <Button Content="Filter" Click="BtnSearchIngredient_Click" Margin="10,0"/>
+        </StackPanel>
+
+        <!-- Option 2: Food Group Selection -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,10">
+            <TextBlock Text="Food Group: " VerticalAlignment="Center"/>
+            <ComboBox x:Name="cbFoodGroups" Width="200" Margin="10,0"/>
+            <Button Content="Filter" Click="BtnFilterFoodGroup_Click" Margin="10,0"/>
+        </StackPanel>
+
+        <!-- Option 3: Calories Range -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,10">
+            <TextBlock Text="Max Calories: " VerticalAlignment="Center"/>
+            <TextBox x:Name="tbMaxCalories" Width="100" Margin="10,0"/>
+            <Button Content="Filter" Click="BtnApplyCalories_Click" Margin="10,0"/>
+        </StackPanel>
+
+        <!-- Close Button -->
+        <Button Grid.Row="4" Content="Close" Click="BtnClose_Click" HorizontalAlignment="Center" Margin="0,11,0,-8" Width="68"/>
+    </Grid>
+</Window>
